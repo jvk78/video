@@ -3,16 +3,13 @@
 var play = document.getElementById('play');
 var video = document.getElementById('video');
 video.volume = 0.1;
-play.onclick = function () {
+play.textContent = 'Go';
+play.addEventListener('click', function () {
   if (video.paused) {
+    play.textContent = '*Play*';
     video.play();
   } else {
     play.textContent = '*Play*';
     video.pause();
   }
-};
-  play.textContent += 'Ready';
-
-play.onclick = function () {
-  play.textContent += '*Pause*';
-};
+});
