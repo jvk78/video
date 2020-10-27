@@ -61,9 +61,10 @@ a {
 }
 h1 {
   margin-bottom: 20px;
+  color: #ff0000;
 }
 
-#play {
+#play, #full {
   text-transform: uppercase;
   margin-top: 10px;
   padding: 5px;

@@ -2,6 +2,8 @@
 
 var play = document.getElementById('play');
 var video = document.getElementById('video');
+var full = document.getElementById('full');
+var wrapper = document.getElementById('wrapper');
 var delay = void 0;
 var update = void 0;
 var updateDelay = void 0;
@@ -9,21 +11,32 @@ var noActiveDelay = 5;
 var nowNoActiv = 0;
 //let resetnowNoActiv;
 video.volume = 0;
-play.onclick = toggleFullScreen;
+play.onclick = playVideo;
+full.onclick = toggleFullScreen;
 
 function toggleFullScreen() {
-    if (video.requestFullScreen) {
-        video.requestFullScreen();
-    } else if (video.webkitRequestFullScreen) {
-        video.webkitRequestFullScreen();
-    } else if (video.mozRequestFullScreen) {
-        video.mozRequestFullScreen();
-    } else if (video.msRequestFullscreen) {
-        video.msRequestFullscreen();
-    } else if (video.webkitEnterFullscreen) {
-        video.webkitEnterFullscreen(); //for iphone this code worked
+    if (wrapper.requestFullScreen) {
+        wrapper.requestFullScreen();
+    } else if (wrapper.webkitRequestFullScreen) {
+        wrapper.webkitRequestFullScreen();
+    } else if (wrapper.mozRequestFullScreen) {
+        wrapper.mozRequestFullScreen();
+    } else if (wrapper.msRequestFullscreen) {
+        wrapper.msRequestFullscreen();
+    } else if (wrapper.webkitEnterFullscreen) {
+        wrapper.webkitEnterFullscreen(); //for iphone this code worked
     }
 }
+
+function playVideo() {
+    if (video.paused) {
+        video.play();
+    } else {
+
+        video.pause();
+    }
+}
+
 //window.onload = () => {
 // console.log(video.onloadedmetadata)
 //  if (video.paused){
